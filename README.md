@@ -7,33 +7,42 @@ The script uses cwebp, which is available on Arch Linux (libwebp package), Ubunt
 
 The script will attempt to install it automatically if you are on one of these systems.
 
-✅ Tested on Arch Linux
+✅ Tested on Arch Linux <br>
 ✅ Tested on Ubuntu 24.04 LTS.
+
+<br>
 
 ---
 
-### ⚠️ Before you run it...
+<br>
+
+# ⚠️ Before you run it...
 
 **Make a backup of your vault** just in case. The script deletes your original `.png` files after converting them and updates all `.md` links to use `.webp` instead. It's been safe in my use case, but better be cautious.
 
----
+<br>
 
-### What it does
+
+
+## What it does
 
 - Converts all `.png` files in a folder to `.webp` (quality = 85)
 - Deletes the original `.png`
 - Rewrites all links in `.md` files from `.png` → `.webp`
 
----
+<br>
 
-### Usage
+
+## Usage
 
 ```bash
 chmod +x convert_to_webp.sh
 ./convert_to_webp.sh
 ```
 
-You’ll be prompted to enter:
+<br>
 
+You’ll be prompted to enter: <br>
 - The path to your image folder
 - The path to your Obsidian vault (where .md files are)
+
