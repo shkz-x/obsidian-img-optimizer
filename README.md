@@ -1,10 +1,14 @@
 # obsidian-img-optimizer | PNG to WEBP
 
-This is a small script I made to optimize the size of my Obsidian vault by converting all `.png` images to `.webp` using the `cwebp` tool. The idea came up after I renewed my yearly Obsidian Sync plan and realized I was using more space than necessary — mostly due to heavy `.png` screenshots and diagrams. To avoid paying for extra storage, I batch-converted them to `.webp`, keeping decent quality while drastically reducing file size.
+This is a small script I made to optimize the size of my Obsidian vault by converting all .png images to .webp using the cwebp tool. The idea came up after I renewed my yearly Obsidian Sync plan and realized I was using more space than necessary — mostly due to heavy .png screenshots and diagrams. To avoid paying for extra storage, I batch-converted them to .webp, keeping decent quality while drastically reducing file size.
 
-In my case, my `image-vault` went from 300 MB down to 120 MB aprox. If applied to larger vaults with lots of images, the impact can be more significant.
+In my case, my image-vault went from 300 MB down to 120 MB aprox. If applied to larger vaults with lots of images, the impact can be more significant.
+The script uses cwebp, which is available on Arch Linux (libwebp package), Ubuntu/Debian (webp package), and most other Linux distributions. 
 
-The script uses `cwebp`, which is available on Arch Linux (`libwebp` package) and most other Linux distributions.
+The script will attempt to install it automatically if you are on one of these systems.
+
+✅ Tested on Arch Linux
+✅ Tested on Ubuntu 24.04 LTS.
 
 ---
 
@@ -28,7 +32,6 @@ The script uses `cwebp`, which is available on Arch Linux (`libwebp` package) an
 chmod +x convert_to_webp.sh
 ./convert_to_webp.sh
 ```
-<br>
 
 You’ll be prompted to enter:
 

@@ -13,18 +13,24 @@ if [[ -z "$NOTES_DIR" || ! -d "$NOTES_DIR" ]]; then
     exit 1
 fi
 
-# Check if 'cwebp' is installed
+# Checking if 'cwebp' is installed | Arch | Ubuntu
 if ! command -v cwebp &>/dev/null; then
     echo "Error: 'cwebp' is not installed."
-    
+
     if command -v pacman &>/dev/null; then
-        echo "[*] Attempting to install 'libwebp' via pacman..."
+        echo "[*] Attempting to install 'libwebp' via pacman (Arch)..."
         sudo pacman -S --noconfirm libwebp || {
             echo "Failed to install libwebp. Please install it manually."
             exit 1
         }
+    elif command -v apt &>/dev/null; then
+        echo "[*] Attempting to install 'webp' via apt (Ubuntu/Debian)..."
+        sudo apt update && sudo apt install -y webp || {
+            echo "Failed to install webp. Please install it manually."
+            exit 1
+        }
     else
-        echo "Please install 'libwebp' manually (e.g., sudo pacman -S libwebp)"
+        echo "Please install 'cwebp' manually using your system's package manager."
         exit 1
     fi
 fi
@@ -40,7 +46,7 @@ done
 
 echo "[+] Conversion completed!"
 
-# Update image links in Markdown files (.png → .webp)
+# Update image links in .md files (.png → .webp)
 echo "[+] Updating image links in Markdown files..."
 
 find "$NOTES_DIR" -type f -iname '*.md' | while read -r note; do
